@@ -33,11 +33,11 @@ public class MemcachedAutoConfiguration{
         if(StringUtils.isEmpty(servers)) {
             addresses.add(new InetSocketAddress("localhost", 11211));
         } else {
-            String[] var3 = servers.split(",");
-            int var4 = var3.length;
+            String[] serverArray = servers.split(",");
+            int length = serverArray.length;
 
-            for(int var5 = 0; var5 < var4; ++var5) {
-                String server = var3[var5];
+            for(int i = 0; i < length; ++i) {
+                String server = serverArray[i];
                 int colon = server.indexOf(":");
                 if(colon == -1) {
                     addresses.add(new InetSocketAddress(server, 11211));
